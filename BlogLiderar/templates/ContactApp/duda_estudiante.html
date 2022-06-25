@@ -1,0 +1,17 @@
+{% extends "Base/padre.html" %}
+{% load static %}
+
+{% block titulo %}
+<h1>¿TIENES ALGUNA DUDA?</h1>
+{% endblock %}
+
+{% block contenido %}
+<p style="font-size: 40%;">Si deseas que nos comuniquemos contigo, diligencia el siguiente formulario y con gusto te contactaremos!</p>
+<br>
+<form style="margin:auto; width: 300px;" action="{% url 'duda_estudiante' %}" method="POST">{% csrf_token %}
+    <table style="font-size: 30%;">
+        {{dudaFormulario.as_table}}
+    </table>
+    <input style="margin:auto; width: 220px;font-size: 30%; background-color: pink;" type="submit" value="Enviar">
+    </form>
+{% endblock %}
