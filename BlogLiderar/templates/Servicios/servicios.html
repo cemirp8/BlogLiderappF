@@ -18,7 +18,7 @@
 <td style="text-align:left; padding: 3%; ">
     <a style="font-size: 150%; "><strong>NEWSLETTER</strong></a><br>
     <p style="width: 100%;text-align: right; text-align:justify;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vulputate volutpat sem, ac sagittis lacus maximus ut. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam porttitor ultrices tellus id hendrerit. Integer condimentum, sem ut posuere viverra, nulla velit ullamcorper nunc, quis efficitur urna sem vel velit. Nulla id arcu at turpis tempus mollis. Curabitur odio mauris, rutrum vel justo vitae, aliquam tempor odio. Ut cursus volutpat nibh, vitae hendrerit velit laoreet quis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aenean vel nisi quis lorem lobortis ullamcorper. Aliquam ullamcorper auctor libero, vel sodales nisl posuere at. 
-    <a href="#" style="color:darkblue">Suscribete a nuestro Newsletter aquí</a></p>
+    <a href="{% url 'newsletter_form' %}" style="color:darkblue">Suscribete a nuestro Newsletter aquí</a></p>
 </td>
 </tr>
 </table>
@@ -40,10 +40,10 @@
 
     <tr>
         <td>
-            <a style="font-size: 100%; color: firebrick; "><strong>INTELIGENCIA EMOCIONAL Y LIDERAZGO</strong></a>
+            <a href="{% url 'cursos_form' %}" style="font-size: 100%; color: firebrick; "><strong>INTELIGENCIA EMOCIONAL Y LIDERAZGO</strong></a>
         </td>
         <td>
-            <a style="font-size: 100%; color: firebrick;"><strong>INNOVACION Y CREATIVIDAD EMPRESARIAL</strong></a>
+            <a href="{% url 'cursos_form' %}" style="font-size: 100%; color: firebrick;"><strong>INNOVACION Y CREATIVIDAD EMPRESARIAL</strong></a>
         </td>
     </tr>
 

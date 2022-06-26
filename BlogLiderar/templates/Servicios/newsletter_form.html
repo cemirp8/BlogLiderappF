@@ -1,0 +1,20 @@
+{% extends "Base/padre.html" %}
+{% load static %}
+
+{% block titulo %}
+<h1>ÚNETE A NUESTRA COMUNIDAD</h1>
+{% endblock %}
+
+{% block contenido %}
+<p style="font-size: 40%;">Animate a recibir las ultimas novedades sobre liderazgo e innovacion en tu correo:</p>
+<form style="margin:auto; width: 300px;" action="{% url 'newsletter_form' %}" method="POST">{% csrf_token %}
+    <table style="font-size: 30%;">
+        {{newsletter_form.as_table}}
+    </table>
+    <input style="margin:auto; width: 220px;font-size: 30%; background-color: pink;" type="submit" value="Enviar">
+    </form>
+{% if mensaje %}
+<p>{{mensaje}}</p>
+{% endif %}
+
+{% endblock %}

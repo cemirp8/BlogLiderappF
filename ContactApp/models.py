@@ -1,4 +1,5 @@
 from django.db import models
+from django.forms import Textarea
 
 # Create your models here.
 class DudaEstudiante(models.Model):
