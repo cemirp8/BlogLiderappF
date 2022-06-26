@@ -8,7 +8,7 @@ class DudaEstudianteFormulario(forms.Form):
 
 curso_de_interes= [
     ('lidera', 'Liderazgo'),
-    ('innova', 'Innovacion'),
+    ('innova', 'Innovación'),
 ]
 
 class InteresadoFormulario(forms.Form):
