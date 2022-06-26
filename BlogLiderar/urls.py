@@ -8,5 +8,6 @@ urlpatterns = [
     path('sobre_nosotros', views.sobre_nosotros, name='sobre_nosotros'),
     path('contactapp/', include('ContactApp.urls')),
     path('servicios/', include('Servicios.urls')),
+    path('blog/', include('Blog.urls')),
 ]
 

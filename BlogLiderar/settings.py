@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'ContactApp',
     'Servicios',
+    'Blog',
 ]
 
 MIDDLEWARE = [
@@ -56,7 +57,7 @@ ROOT_URLCONF = 'BlogLiderar.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['G:/My Drive/Estudio/Curso Python/VSC/BlogLiderApp/BlogLiderappF/BlogLiderar/templates'],
+        'DIRS': ['D:/Python/BlogLiderApp-main/BlogLiderar/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
