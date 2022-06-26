@@ -9,9 +9,9 @@
 <p style="font-size: 40%;">Si estás interesado en trabajar con nosotros, déjanos tus datos y te contactaremos para nuestras vacantes!</p>
 <br>
 <form style="margin:auto; width: 300px;" action="{% url 'interesado' %}" method="POST">{% csrf_token %}
-    <table style="font-size: 30%;">
+    <center><table style="font-size: 30%;">
         {{interesadoFormulario.as_table}}
-    </table>
+    </table></center>
     <input style="margin:auto; width: 220px;font-size: 30%; background-color: pink;" type="submit" value="Enviar">
     </form>
 {% endblock %}

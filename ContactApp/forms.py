@@ -6,9 +6,13 @@ class DudaEstudianteFormulario(forms.Form):
     email= forms.EmailField()
     mensaje= forms.CharField(max_length=200)
 
+curso_de_interes= [
+    ('lidera', 'Liderazgo'),
+    ('innova', 'Innovacion'),
+]
 
 class InteresadoFormulario(forms.Form):
     nombre= forms.CharField(max_length=30)
     email= forms.EmailField()
     telefono= forms.IntegerField()
-    curso_de_interes= forms.CharField(max_length=30)
+    curso_de_interes= forms.CharField(label='Curso de interés', widget=forms.Select(choices=curso_de_interes))
