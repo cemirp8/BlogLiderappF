@@ -14,13 +14,19 @@
             <div style="font-size: 25%;"class="card">
                 <div style="color: black; background-color: orange; " class="card-body">
                     <h2 style="font-size:200%; text-align: center;">Registro de Usuario</h2>
+                    {% if mensaje %}
+                    <h2 style="font-size: 150%; color: pink">{{mensaje}}</h2>
+                    {% endif %} 
                     <hr>
                     <form action="" method="POST"> {% csrf_token %}
+                        <label for="id_first_name">Nombre:</label> {{ form.first_name }} <br><br>
+                        <label for="id_last_name">Apellido:</label> {{ form.last_name }} <br><br>
+                        <label for="id_email">Correo:</label> {{ form.email }} <br><br>
                         <label for="id_username">Usuario:</label> {{ form.username }} <br><br>
                         <label for="id_password1">Contraseña: {{ form.password1 }} <br><br>
                         <label for="id_password2">Confirmar Contraseña: {{ form.password2 }} <br><br>
                         <hr>
-                        <a href="{% url 'login' %}" style="float:left">Iniciar Sesion</a>
+                        <a href="{% url 'login_request' %}" style="float:left">Iniciar Sesion</a>
                         <input type="submit" value="Registrar" class="btn btn-success" style="float:right; font-size:100%">
                     </form>
                 </div>

@@ -14,12 +14,14 @@
             <div style="font-size: small;"class="card">
                 <div style="color: black; background-color: orange;" class="card-body">
                     <h2 style="font-size:200%">Ingresa tus credenciales</h2>
+                    {% if mensaje %}
+                    <h2 style="font-size: 150%; color: black">{{mensaje}}</h2>
+                    {% endif %} 
                     <hr>
                     <form action="" method="POST"> {% csrf_token %}
-                        {{form}}
-                        <br>
+                        {{form.as_p}}
                         <hr>
-                        <a href="{% url 'registro_usuario' %}" style="float:left">Registarse</a>
+                        <a href="{% url 'register_request' %}" style="float:left">Registarse</a>
                         <input type="submit" value="Ingresar" class="btn btn-success" style="float:right; font-size:100%">
                     </form>
                 </div>
