@@ -9,5 +9,7 @@ urlpatterns = [
     path('contactapp/', include('ContactApp.urls')),
     path('servicios/', include('Servicios.urls')),
     path('blog/', include('Blog.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('usuarios/', include('Usuarios.urls')),
 ]
 

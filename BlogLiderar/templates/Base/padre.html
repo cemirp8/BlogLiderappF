@@ -29,7 +29,12 @@
                         <li class="nav-item"><a class="nav-link" href="{% url 'blog' %}">BLOG</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'duda_estudiante' %}">CONTACTO</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'interesado' %}">BOLSA DE EMPLEO</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">SIGN IN</a></li>
+                        {% if user.is_authenticated %}
+                        <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">CERRAR SESION</a></li>
+                        <li class="nav-item"><a>@{{user.username}}</a></li>
+                        {% else %}
+                        <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">INICIAR SESION</a></li>
+                        {% endif %}
                     </ul>
                 </div>
             </div>
