@@ -4,7 +4,7 @@ class DudaEstudianteFormulario(forms.Form):
     nombre= forms.CharField(max_length=30)
     apellido= forms.CharField(max_length=30)
     email= forms.EmailField()
-    mensaje= forms.CharField(max_length=200)
+    mensaje= forms.CharField(max_length=200, widget=forms.Textarea)
 
 curso_de_interes= [
     ('lidera', 'Liderazgo'),

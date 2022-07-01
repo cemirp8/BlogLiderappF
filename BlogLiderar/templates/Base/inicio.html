@@ -7,4 +7,9 @@
 
 {% block contenido %}
 <h1>Tu nuevo blog de Liderazo e Inovación</h1>
+<hr>
+{% if mensaje %}
+<h2 style="font-size: 150%; color: pink">{{mensaje}}</h2>
+{% endif %} 
+
 {% endblock %}

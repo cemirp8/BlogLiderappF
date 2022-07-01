@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from ContactApp.models import *
 from ContactApp.forms import *
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -22,6 +23,7 @@ def dudaestudiante(request):
         dudaFormulario = DudaEstudianteFormulario()
     return render(request, 'ContactApp/duda_estudiante.html',{'dudaFormulario':dudaFormulario})
 
+@login_required
 def interesado(request):
     if request.method == "POST":
         interesadoFormulario= interesadoFormulario(request.POST)

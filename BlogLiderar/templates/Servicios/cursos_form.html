@@ -1,0 +1,20 @@
+{% extends "Base/padre.html" %}
+{% load static %}
+
+{% block titulo %}
+<h1>CONVIERTETE EN UN LIDER!</h1>
+{% endblock %}
+
+{% block contenido %}
+<p style="font-size: 40%;">Si estás interesado en nuestros cursos, inscribete en el siguiente formulario:</p>
+<form style="margin:auto; width: 300px;" action="{% url 'cursos_form' %}" method="POST">{% csrf_token %}
+    <table style="font-size: 30%;">
+        {{cursos_form.as_table}}
+    </table>
+    <input style="margin:auto; width: 220px;font-size: 30%; background-color: pink;" type="submit" value="Enviar">
+    </form>
+{% if mensaje %}
+<p>{{mensaje}}</p>
+{% endif %}
+
+{% endblock %}

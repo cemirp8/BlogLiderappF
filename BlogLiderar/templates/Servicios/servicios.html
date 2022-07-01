@@ -19,7 +19,7 @@
     <a style="font-size: 150%; "><strong>NEWSLETTER</strong></a><br>
     <p style="width: 100%;text-align: right; text-align:justify;">Queremos que seas parte de una comunidad donde encontrarás herramientas para liderarte a ti mismo y a tus equipos. En LiderApp encontrarás personas que al igual que tu, quieren su mejor verisón y ayudar a otros a serlo!
     <br>
-    <a href="#" style="color:darkblue">Suscribete a nuestro Newsletter aquí</a></p>
+    <a href="{% url 'newsletter_form' %}" style="color:darkblue">Suscribete a nuestro Newsletter aquí</a></p>
 </td>
 </tr>
 </table>
@@ -32,19 +32,19 @@
 <table>
     <tr>
         <td>
-            <p><img style="width: 70%" src="{% static 'ContactApp\images\Servicios\Curso_001.jpg' %}"> </p>
+            <p><img style="width: 75%" src="{% static 'ContactApp\images\Servicios\Curso_001.jpg' %}"> </p>
         </td>
         <td>
-            <p><img style="width: 70%" src="{% static 'ContactApp\images\Servicios\Curso_002.jpg' %}"> </p>
+            <p><img style="width: 53%" src="{% static 'ContactApp\images\Servicios\Curso_002.jpg' %}"> </p>
         </td>
     </tr>
 
     <tr>
         <td>
-            <a style="font-size: 100%; color: firebrick; "><strong>INTELIGENCIA EMOCIONAL Y LIDERAZGO</strong></a>
+            <a href="{% url 'cursos_form' %}" style="font-size: 100%; color: firebrick; "><strong>INTELIGENCIA EMOCIONAL Y LIDERAZGO</strong></a>
         </td>
         <td>
-            <a style="font-size: 100%; color: firebrick;"><strong>INNOVACION Y CREATIVIDAD EMPRESARIAL</strong></a>
+            <a href="{% url 'cursos_form' %}" style="font-size: 100%; color: firebrick;"><strong>INNOVACION Y CREATIVIDAD EMPRESARIAL</strong></a>
         </td>
     </tr>
 
@@ -53,7 +53,8 @@
             <p>Como parte primordial de las iniciativas de liderazgo, se encuentra el reconocimiento de las emociones y su gestión para fortalecer las habilidades del desarollo personal y grupal.</p>
         </td>
         <td>
-            <p>En una época tan cambiante, es importante que cada actvidad y proyecto desarrollado en el ámbito empresarial sea encaminado a la continua innovación que nace de cultivar la curiosidad, la creatividad y el libre desarrollo de actividades interdisciplianrias.</p>
+            <br>
+            <p style="width: 100%; text-align:center; padding-left: 5%">En una época tan cambiante, es importante que cada actvidad y proyecto desarrollado en el ámbito empresarial sea encaminado a la continua innovación que nace de cultivar la curiosidad, la creatividad y el libre desarrollo de actividades interdisciplianrias.</p>
         </td>
     </tr>
 </table>

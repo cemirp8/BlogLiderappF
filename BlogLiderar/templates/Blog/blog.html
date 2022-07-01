@@ -2,35 +2,27 @@
 {% load static %}
 
 {% block titulo %}
-<p>LiderApp</p>
+<p>Blog LiderApp</p>
 {% endblock %}
 
 {% block contenido %}
-<h1 style="font-size: 110%; background-color: palevioletred; width: 100%; padding: 0.3%;">Explora las nuevas entradas:</h1>
+<h1 style="font-size: 110%; background-color: palevioletred; width: 100%; padding: 0.3%;">Explora las últimas publicaciones de tendencias a nivel mundial:</h1>
 <br>
 
-<div style="text-align:left ;">
-    <a style="font-size: 150%; ">LOS ENEATIPOS</a>
-    <p style=" text-align: justify; padding: 1% ;">Encuentra sesiones virtuales y presenciales, donde mediante técnicas de innovación aprenderás el liderazgo de una manera clara y útil. Adicioalmente, en LiderApp hemos creado un espacio donde encontrarás material que según tu gusto te ayudarán en tu proceso de innovar y liderar.</p>
-</div>
-<br>
-<table>
-    <tr>
-        <td>
-            <p><img style="width: 70%" src="{% static 'ContactApp\images\Blog\eneagrama.jpg' %}"> </p>
-        </td>
-    </tr>
+{% for publicacion in publicaciones %}
+<a href="{% url 'blog' %}">
+<td style="text-align:left; padding: 3%; ">
+   <a style="font-size: 150%; "><strong>{{publicacion.titulo}}</strong></a>
+    <br>
+    <br>
+    <span>{{publicacion.contenido}}</span>
 
-    <tr>
-        <td>
-            <a style="font-size: 100%; color: firebrick; "><strong>INTELIGENCIA EMOCIONAL Y LIDERAZGO</strong></a>
-        </td>
-    </tr>
-
-    <tr>
-        <td>
-            <p>Como parte primordial de las iniciativas de liderazgo, se encuentra el reconocimiento de las emociones y su gestión para fortalecer las habilidades del desarollo personal y grupal.</p>
-        </td>
-    </tr>
-</table>
+<div style="text-align:left;"></div>
+        Autor: {{publicacion.autor}}
+        <br>
+        Fecha: {{publicacion.creado}}
+        <br>
+        Categoría: {{publicacion.categorias}}
+</a>
+{% endfor %}
 {% endblock %}
