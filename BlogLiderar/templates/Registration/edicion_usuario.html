@@ -1,0 +1,40 @@
+{% extends "Base/padre.html" %}
+{% load static %}
+
+{% block titulo %}
+<p style="font-size: 70%">Perfil de <a style="color: pink; font-size: 100%;">@{{usuario}}</a></p>
+{% endblock %}
+
+{% block contenido %}
+<hr>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-md-6 offset-md-3">
+            <div style="font-size: 25%;"class="card">
+                <div style="color: black; background-color: orange; " class="card-body">
+                    <h2 style="font-size:200%; text-align: center;">Edición de Usuario</h2>
+                    <hr>
+                    <form action="{% url 'edicion_usuario' %}" method="POST"> {% csrf_token %}
+                        <label for="id_first_name">Nombre:</label> {{ form.first_name }} <br><br>
+                        <label for="id_last_name">Apellido:</label> {{ form.last_name }} <br><br>
+                        <label for="id_email">Correo:</label> {{ form.email }} <br><br>
+                        <label for="id_password1">Contraseña: {{ form.password1 }} <br><br>
+                        <label for="id_password2">Confirmar Contraseña: {{ form.password2 }} <br><br>
+                        <hr>
+                        <input type="submit" value="Actualizar" class="btn btn-success" style="float:right; font-size:100%">
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
+
+
+
+
+
+{% endblock %}

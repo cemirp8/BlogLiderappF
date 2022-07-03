@@ -31,7 +31,7 @@
                         <li class="nav-item"><a class="nav-link" href="{% url 'interesado' %}">BOLSA DE EMPLEO</a></li>
                         {% if user.is_authenticated %}
                         <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">CERRAR SESION</a></li>
-                        <li class="nav-item"><a class="nav-link">@{{user.username}}</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'edicion_usuario' %}">@{{user.username}}</a></li>
                         {% else %}
                         <li class="nav-item"><a class="nav-link" href="{% url 'login_request' %}">INICIAR SESION</a></li>
                         {% endif %}

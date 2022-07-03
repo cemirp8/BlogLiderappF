@@ -4,6 +4,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
 
 
 def login_request(request):
@@ -46,3 +47,23 @@ def register_request(request):
     else:
         formulario = CustomUserCreationForm()
         return render(request, 'Registration/registro.html', {'form':formulario})
+
+@login_required
+def edicion_usuario(request):
+    usuario = request.user
+    if request.method == "POST":
+        formulario = UserEditForm(request.POST, instance=usuario)
+        if formulario.is_valid():
+            informacion = formulario.cleaned_data
+            usuario.first_name= informacion['first_name']
+            usuario.last_name= informacion['last_name']
+            usuario.email= informacion['email']
+            usuario.password1= informacion['password1']
+            usuario.password2= informacion['password2']
+            usuario.save()
+            mensaje = 'Cambios guardados exitosamente!'
+            return render(request, "Base/inicio.html", {'mensaje':mensaje, 'usuario':usuario})
+    else:
+        formulario = UserEditForm(instance=usuario)
+    return render(request, "Registration/edicion_usuario.html", {'form':formulario, 'usuario':usuario.username})
+            
