@@ -59,7 +59,7 @@ ROOT_URLCONF = 'BlogLiderar.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['D:/Python/BlogLiderApp-main/BlogLiderar/templates'],
+        'DIRS': ['G:/My Drive/Estudio/Curso Python/VSC/BlogLiderApp/BlogLiderappF/BlogLiderar/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -130,8 +130,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-MEDIA_URL='/media/'
-MEDIA_ROOT=os.path.join(BASE_DIR, 'media')
+MEDIA_URL='media/'
+MEDIA_ROOT=os.path.join(BASE_DIR, 'media/')
 
 LOGIN_URL = '/usuarios/login/'
 LOGIN_REDIRECT_URL = '/'
