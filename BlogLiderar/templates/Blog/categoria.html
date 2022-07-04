@@ -11,17 +11,14 @@
 
 <section>
     <div style="margin:auto; width: 75%; text-align:right; color: blanchedalmond">
-        <strong><a style= "color:white"> Categorías:</strong>
-
+        Todas las categorías:
         {% for publicacion in publicaciones %}
             {% for categoria in publicacion.categorias.all %}
-            <a href="{% url 'categoria' categoria.id %}" style="font-size: 100%; color: wheat; ">{{categoria.titulo}}</a> &nbsp;&nbsp;|
+              {{categoria.titulo}} &nbsp;&nbsp;&nbsp;|
               {% endfor %}
         {% endfor %}
-
     </div>
 </section>
-<br>
 
 {% for publicacion in publicaciones %}
 <a href="{% url 'blog' %}">
@@ -31,7 +28,7 @@
     <br>
 
 <p><img style="width: 30%; image-orientation:left;" src="{% static 'BlogLiderApp-main\media\blog' %}"> </p>
-<div style="text-align:left; width: 60%"><a style="font-size: 120%; "><a style="font-family: Segoe UI; "></a>{{publicacion.contenido}}</a></div>
+<div style="text-align:left; width: 70%"><a style="font-size: 120%; "><a style="font-family: Segoe UI; "></a>{{publicacion.contenido}}</a></div>
 
 
 <div style="text-align:right;"><a style="font-size: 80%;">
