@@ -1,0 +1,45 @@
+{% extends "Base/padre.html" %}
+{% load static %}
+
+{% block titulo %}
+<p>Blog LiderApp</p>
+{% endblock %}
+
+{% block contenido %}
+<h1 style="font-size: 110%; background-color: palevioletred; width: 100%; padding: 0.3%;">Explora las últimas publicaciones de tendencias a nivel mundial:</h1>
+<br>
+
+<section>
+    <div style="margin:auto; width: 75%; text-align:right; color: blanchedalmond">
+        Todas las categorías:
+        {% for publicacion in publicaciones %}
+            {% for categoria in publicacion.categorias.all %}
+              {{categoria.titulo}} &nbsp;&nbsp;&nbsp;|
+              {% endfor %}
+        {% endfor %}
+    </div>
+</section>
+
+{% for publicacion in publicaciones %}
+<a href="{% url 'blog' %}">
+<td style="text-align:left; padding: 3%; ">
+
+<div style="text-align:left;"><a style="font-size: 150%; "><strong><i>{{publicacion.titulo}}</i></strong></a></div>  
+    <br>
+
+<p><img style="width: 30%; image-orientation:left;" src="{% static 'BlogLiderApp-main\media\blog' %}"> </p>
+<div style="text-align:left; width: 70%"><a style="font-size: 120%; "><a style="font-family: Segoe UI; "></a>{{publicacion.contenido}}</a></div>
+
+
+<div style="text-align:right;"><a style="font-size: 80%;">
+    Autor: {{publicacion.autor}}
+    <br>
+    Fecha: {{publicacion.creado}}
+    <br>
+    Categoría: {{publicacion.categorias}}
+</div>
+</a>
+
+
+{% endfor %}
+{% endblock %}
