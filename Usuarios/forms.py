@@ -19,7 +19,7 @@ class UserEditForm(UserCreationForm):
     first_name = forms.CharField(max_length=50)
     last_name=forms.CharField(max_length=50)
     email = forms.EmailField(required=True)
-    password1: forms.CharField(label="Contraseña", widget=forms.PasswordInput, help_text=None, required=False)
+    password1: forms.CharField(label="Contraseña", widget=forms.PasswordInput, required=False)
     password2: forms.CharField(label="Confirma la contraseña", widget=forms.PasswordInput, help_text=None, required=False)
 
     class Meta:
