@@ -29,5 +29,5 @@ class Publicacion(models.Model):
         verbose_name= 'publicacion'
         verbose_name_plural= 'publicaciones'
     
-    def _str_(self):    
+    def __str__(self):    
         return self.titulo

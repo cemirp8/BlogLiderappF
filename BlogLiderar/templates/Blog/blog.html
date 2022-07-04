@@ -9,20 +9,40 @@
 <h1 style="font-size: 110%; background-color: palevioletred; width: 100%; padding: 0.3%;">Explora las últimas publicaciones de tendencias a nivel mundial:</h1>
 <br>
 
+<section>
+    <div style="margin:auto; width: 75%; text-align:right; color: blanchedalmond">
+        <strong><a style= "color:white"> Categorías:</strong>
+
+        {% for publicacion in publicaciones %}
+            {% for categoria in publicacion.categorias.all %}
+            <a href="{% url 'categoria' categoria.id %}" style="font-size: 100%; color: wheat; ">{{categoria.titulo}}</a> &nbsp;&nbsp;|
+              {% endfor %}
+        {% endfor %}
+
+    </div>
+</section>
+<br>
+
 {% for publicacion in publicaciones %}
 <a href="{% url 'blog' %}">
 <td style="text-align:left; padding: 3%; ">
-   <a style="font-size: 150%; "><strong>{{publicacion.titulo}}</strong></a>
-    <br>
-    <br>
-    <span>{{publicacion.contenido}}</span>
 
-<div style="text-align:left;"></div>
-        Autor: {{publicacion.autor}}
-        <br>
-        Fecha: {{publicacion.creado}}
-        <br>
-        Categoría: {{publicacion.categorias}}
+<div style="text-align:left;"><a style="font-size: 150%; "><strong><i>{{publicacion.titulo}}</i></strong></a></div>  
+    <br>
+
+<p><img style="width: 30%; image-orientation:left;" src="{% static 'BlogLiderApp-main\media\blog' %}"> </p>
+<div style="text-align:left; width: 60%"><a style="font-size: 120%; "><a style="font-family: Segoe UI; "></a>{{publicacion.contenido}}</a></div>
+
+
+<div style="text-align:right;"><a style="font-size: 80%;">
+    Autor: {{publicacion.autor}}
+    <br>
+    Fecha: {{publicacion.creado}}
+    <br>
+    Categoría: {{publicacion.categorias}}
+</div>
 </a>
+
+
 {% endfor %}
 {% endblock %}
