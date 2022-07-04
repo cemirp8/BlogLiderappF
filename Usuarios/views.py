@@ -66,4 +66,11 @@ def edicion_usuario(request):
     else:
         formulario = UserEditForm(instance=usuario)
     return render(request, "Registration/edicion_usuario.html", {'form':formulario, 'usuario':usuario.username})
-            
+
+@login_required
+def eliminacion_usuario(request, username):
+        usuario= User.objects.get(username=username)
+        usuario.delete()
+        mensaje = 'Usuario borrado exitosamente. Esperamos volverte a ver pronto!'
+        logout(request)
+        return render(request, "Base/inicio.html", {'mensaje':mensaje})
