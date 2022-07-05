@@ -1,0 +1,37 @@
+{% extends "Base/padre.html" %}
+{% load static %}
+
+{% block titulo %}
+<p style="font-size: 70%">Edicion del Blog</p>
+{% endblock %}
+
+{% block contenido %}
+<hr>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-md-6 offset-md-3">
+            <div style="font-size: 25%;"class="card">
+                <div style="color: black; background-color: orange; " class="card-body">
+                    <h2 style="font-size:200%; text-align: center;">Edición de "{{publicacion.titulo}}"</h2>
+                    <hr>
+                    <form action="{% url 'editar_entradas' publicacion.id %}" method="POST"> {% csrf_token %}
+                        <label for="id_first_name">Titulo:</label> {{ form.titulo }} <br><br>
+                        <label for="id_last_name">Contenido:</label> {{ form.contenido }} <br><br>
+                        <a href="{% url 'eliminar_entradas' publicacion.id %}" style="float:left">Eliminar Entrada</a>
+                        <input type="submit" value="Actualizar" class="btn btn-success" style="float:right; font-size:100%">
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
+
+
+
+
+
+{% endblock %}

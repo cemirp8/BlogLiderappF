@@ -22,6 +22,7 @@
                         <label for="id_password1">Contraseña: {{ form.password1 }} <br><br>
                         <label for="id_password2">Confirmar Contraseña: {{ form.password2 }} <br><br>
                         <hr>
+                        <a href="{% url 'eliminacion_usuario' user.username %}" style="float:left">Eliminar Usuario</a>
                         <input type="submit" value="Actualizar" class="btn btn-success" style="float:right; font-size:100%">
                     </form>
                 </div>

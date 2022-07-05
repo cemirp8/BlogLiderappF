@@ -7,19 +7,7 @@
 
 {% block contenido %}
 <h1 style="font-size: 110%; background-color: palevioletred; width: 100%; padding: 0.3%;">Explora las últimas publicaciones de tendencias a nivel mundial:</h1>
-<br>
-<a href="{% url 'crearBlog' %}" style="font-size: 100%; color: wheat ">Agrega una nueva entrada</a> &nbsp;&nbsp;|
-<a href="{% url 'mostrar_entradas' %}" style="font-size: 100%; color: wheat; ">Editar una entrada</a> &nbsp;&nbsp;
-<br>
-{% if mensaje %}
-    <h2>{{mensaje}} </h2>
-{% endif %}
-<br>
-<form action = "{% url 'BuscarBlog' %}" method="GET">
-    <input type="string" name="contenido" id="contenido">
-    <input type="submit" value="Buscar">
-</form>
-<br>
+
 <br>
 <section>
     <div style="margin:auto; width: 75%; text-align:right; color: blanchedalmond">
@@ -27,7 +15,7 @@
 
         {% for publicacion in publicaciones %}
             {% for categoria in publicacion.categorias.all %}
-                <a href="{% url 'categoria' categoria.id %}" style="font-size: 100%; color: wheat; ">{{categoria.titulo}}</a> &nbsp;&nbsp;|
+            <a href="{% url 'categoria' categoria.id %}" style="font-size: 100%; color: wheat; ">{{categoria.titulo}}</a> &nbsp;&nbsp;|
             {% endfor %}
         {% endfor %}
 
@@ -39,13 +27,13 @@
 <a href="{% url 'blog' %}">
 <td style="text-align:left; padding: 3%; ">
 
-<div style="text-align:left;"><a style="font-size: 150%; "><strong><i>{{publicacion.titulo}}</i></strong></a></div>  
+<div style="text-align:left;"><a style="font-size: 150%; "><strong><i>{{publicacion.titulo}}</i></strong></a>  &nbsp;&nbsp;|
+<a href="{% url 'editar_entradas' publicacion.id %}" style="font-size: 100%; color: wheat ">Editar entrada</a></div>
     <br>
 
-{% if publicacion.image %}
-<p><img style="width: 30%; image-orientation:left;" src={{publicacion.image.url}}></p>
-{% endif %}
-
+    {% if publicacion.image %}
+    <p><img style="width: 30%; image-orientation:left;" src={{publicacion.image.url}}></p>
+    {% endif %}
 <div style="text-align:left; width: 100%"><a style="font-size: 120%; "><a style="font-family: Segoe UI; "></a>{{publicacion.contenido}}</a></div>
 
 
@@ -54,9 +42,7 @@
     <br>
     Fecha: {{publicacion.creado}}
     <br>
-    {% for categoria in publicacion.categorias.all %}
-    Categoría: {{categoria.titulo}}
-    {% endfor %}
+    Categoría: {{publicacion.categorias}}
 </div>
 </a>
 
