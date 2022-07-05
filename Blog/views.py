@@ -48,4 +48,32 @@ def publicaciones(request):
 
     return render(request, "Blog/crearBlog.html", {"formulario":formulario})
 
+@login_required
+def mostrar_entradas(request):
+    usuario=request.user
+    autor=User.objects.get(username=usuario.username)
+    publicaciones = Publicacion.objects.filter(autor=autor)
+    return render(request, "Blog/mostrar_entradas.html", {'publicaciones':publicaciones})
 
+@login_required
+def editar_entradas(request, publicacion_id):
+    publicacion = Publicacion.objects.get(id=publicacion_id) 
+    if request.method == "POST":
+        formulario = Publicacion_Form(request.POST)
+        if formulario.is_valid():
+            informacion = formulario.cleaned_data
+            publicacion.titulo = informacion['titulo']
+            publicacion.contenido = informacion['contenido']
+            publicacion.save()
+            mensaje = 'Cambios guardados exitosamente!'
+            return render(request, "Base/inicio.html", {'mensaje':mensaje})
+    else:
+        formulario = Publicacion_Form()
+    return render(request, "Blog/editar_entradas.html", {'form':formulario, 'publicacion':publicacion})
+
+@login_required
+def eliminar_entradas(request, publicacion_id):
+    publicacion = Publicacion.objects.get(id=publicacion_id)
+    publicacion.delete()
+    mensaje = 'Entrada eliminada exitosamente!'
+    return render(request, "Base/inicio.html", {'mensaje':mensaje})
