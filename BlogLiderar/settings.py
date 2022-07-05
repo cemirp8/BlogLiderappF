@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-p6$t+jeqomiq0ofg4e^(phl_kww$!=do*=cpnu&b$*24^rn2@h'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["127.0.0.1", "localhost,"]
 
 
 # Application definition
@@ -59,7 +59,7 @@ ROOT_URLCONF = 'BlogLiderar.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['G:/My Drive/Estudio/Curso Python/VSC/BlogLiderApp/BlogLiderappF/BlogLiderar/templates'],
+        'DIRS': ['D:/Python/BlogLiderApp-main/BlogLiderar/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
