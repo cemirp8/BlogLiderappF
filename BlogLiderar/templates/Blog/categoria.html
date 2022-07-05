@@ -14,8 +14,8 @@
         Todas las categorías:
         {% for publicacion in publicaciones %}
             {% for categoria in publicacion.categorias.all %}
-              {{categoria.titulo}} &nbsp;&nbsp;&nbsp;|
-              {% endfor %}
+                {{categoria.titulo}} &nbsp;&nbsp;&nbsp;|
+            {% endfor %}
         {% endfor %}
     </div>
 </section>
@@ -27,7 +27,9 @@
 <div style="text-align:left;"><a style="font-size: 150%; "><strong><i>{{publicacion.titulo}}</i></strong></a></div>  
     <br>
 
-<p><img style="width: 30%; image-orientation:left;" src={{publicacion.image.url}}> </p>
+    {% if publicacion.image %}
+    <p><img style="width: 30%; image-orientation:left;" src={{publicacion.image.url}}></p>
+    {% endif %}
 <div style="text-align:left; width: 70%"><a style="font-size: 120%; "><a style="font-family: Segoe UI; "></a>{{publicacion.contenido}}</a></div>
 
 
