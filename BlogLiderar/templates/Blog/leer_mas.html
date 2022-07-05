@@ -8,21 +8,20 @@
 {% block contenido %}
 <h1 style="font-size: 110%; background-color: palevioletred; width: 100%; padding: 0.3%;">Explora las últimas publicaciones de tendencias a nivel mundial:</h1>
 <br>
-
-<section>
-    <div style="margin:auto; width: 75%; text-align:right; color: blanchedalmond">
-        Todas las categorías:
-        {% for publicacion in publicaciones %}
-            {% for categoria in publicacion.categorias.all %}
-                {{categoria.titulo}} &nbsp;&nbsp;&nbsp;|
-            {% endfor %}
-        {% endfor %}
-    </div>
-</section>
-
-{% for publicacion in publicaciones %}
-<a href="{% url 'blog' %}">
-<td style="text-align:left; padding: 3%; ">
+<a href="{% url 'crearBlog' %}" style="font-size: 100%; color: wheat ">Agrega una nueva entrada</a> &nbsp;&nbsp;|
+<a href="{% url 'mostrar_entradas' %}" style="font-size: 100%; color: wheat; ">Editar una entrada</a> &nbsp;&nbsp;
+<br>
+{% if mensaje %}
+    <h2>{{mensaje}} </h2>
+{% endif %}
+<br>
+<form action = "{% url 'BuscarBlog' %}" method="GET">
+    <input type="string" name="contenido" id="contenido">
+    <input type="submit" value="Buscar">
+</form>
+<br>
+<br>
+<br>
 
 <div style="text-align:left;"><a style="font-size: 150%; "><strong><i>{{publicacion.titulo}}</i></strong></a></div>  
 <br>
@@ -36,7 +35,7 @@
         </td>
 
         <td>
-            <div style="text-align:justify; width: 100%"><a style="font-size: 120%; "><a style="font-family: Segoe UI; "></a>{{publicacion.contenido|truncatewords:"30" }}</a><a href="{% url 'leer_mas' publicacion.id %}" style="color:orange">Leer mas.</a></div>
+            <div style="text-align:justify; width: 100%"><a style="font-size: 120%; "><a style="font-family: Segoe UI; "></a>{{publicacion.contenido}}</a></div>
         </td>
     </tr>
 </table>
@@ -54,7 +53,4 @@
 <hr>
 
 
-
-
-{% endfor %}
 {% endblock %}

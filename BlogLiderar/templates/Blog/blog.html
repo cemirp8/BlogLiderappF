@@ -35,20 +35,26 @@
 </section>
 <br>
 
+
 {% for publicacion in publicaciones %}
-<a href="{% url 'blog' %}">
-<td style="text-align:left; padding: 3%; ">
 
 <div style="text-align:left;"><a style="font-size: 150%; "><strong><i>{{publicacion.titulo}}</i></strong></a></div>  
-    <br>
+<br>
 
-{% if publicacion.image %}
-<p><img style="width: 30%; image-orientation:left;" src={{publicacion.image.url}}></p>
-{% endif %}
+<table>
+    <tr>
+        <td style="width:40%; padding-left: 3%">
+            {% if publicacion.image %}
+            <p><img style="width: 70%; image-orientation:left;" src={{publicacion.image.url}}></p>
+            {% endif %}
+        </td>
 
-<div style="text-align:left; width: 100%"><a style="font-size: 120%; "><a style="font-family: Segoe UI; "></a>{{publicacion.contenido}}</a></div>
-
-
+        <td>
+            <div style="text-align:justify; width: 100%"><a style="font-size: 120%; "><a style="font-family: Segoe UI; "></a>{{publicacion.contenido|truncatewords:"30" }}</a><a href="{% url 'leer_mas' publicacion.id %}" style="color:orange">Leer mas.</a></div>
+        </td>
+    </tr>
+</table>
+<br>
 <div style="text-align:right;"><a style="font-size: 80%;">
     Autor: {{publicacion.autor}}
     <br>
@@ -59,6 +65,7 @@
     {% endfor %}
 </div>
 </a>
+<hr>
 
 
 {% endfor %}
