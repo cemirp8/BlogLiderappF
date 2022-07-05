@@ -21,22 +21,7 @@
 </form>
 <br>
 <br>
-<section>
-    <div style="margin:auto; width: 75%; text-align:right; color: blanchedalmond">
-        <strong><a style= "color:white"> Categorías:</strong>
-
-        {% for publicacion in publicaciones %}
-            {% for categoria in publicacion.categorias.all %}
-                <a href="{% url 'categoria' categoria.id %}" style="font-size: 100%; color: wheat; ">{{categoria.titulo}}</a> &nbsp;&nbsp;|
-            {% endfor %}
-        {% endfor %}
-
-    </div>
-</section>
 <br>
-
-
-{% for publicacion in publicaciones %}
 
 <div style="text-align:left;"><a style="font-size: 150%; "><strong><i>{{publicacion.titulo}}</i></strong></a></div>  
 <br>
@@ -50,7 +35,7 @@
         </td>
 
         <td>
-            <div style="text-align:justify; width: 100%"><a style="font-size: 120%; "><a style="font-family: Segoe UI; "></a>{{publicacion.contenido|truncatewords:"30" }}</a><a href="{% url 'leer_mas' publicacion.id %}" style="color:orange">Leer mas.</a></div>
+            <div style="text-align:justify; width: 100%"><a style="font-size: 120%; "><a style="font-family: Segoe UI; "></a>{{publicacion.contenido}}</a></div>
         </td>
     </tr>
 </table>
@@ -68,5 +53,4 @@
 <hr>
 
 
-{% endfor %}
 {% endblock %}

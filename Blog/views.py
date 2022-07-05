@@ -27,6 +27,11 @@ def buscar(request):
         mensaje = "Ingrese una búsqueda válida"    
         return render(request, "Blog/blog.html", {"publicaciones": publicaciones, "mensaje":mensaje})
 
+def leer_mas(request, publicacion_id):
+    publicacion = Publicacion. objects.get(id=publicacion_id)
+    return render (request, "Blog/leer_mas.html", {'publicacion':publicacion})
+
+
 @login_required
 def publicaciones(request):
     if request.method == 'POST':
