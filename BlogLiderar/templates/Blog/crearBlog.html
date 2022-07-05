@@ -1,0 +1,17 @@
+{% extends "Base/padre.html" %}
+{% load static %}
+
+{% block titulo %}
+<h1>Crea una nueva entrada para la comunidad LiderApp</h1>
+{% endblock %}
+
+{% block contenido %}
+<p style="font-size: 40%;">Comparte tu conocimiento:</p>
+<form style="margin:auto; width: 300px;" action="{% url 'crearBlog' %}" method="POST">{% csrf_token %}
+    <table style="font-size: 30%;">
+        {{formulario.as_table}}
+    </table>
+    <input style="margin:auto; width: 220px;font-size: 30%; background-color: pink;" type="submit" value="Enviar">
+    </form>
+
+{% endblock %}

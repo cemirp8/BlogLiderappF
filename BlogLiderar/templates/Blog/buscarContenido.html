@@ -7,18 +7,7 @@
 
 {% block contenido %}
 <h1 style="font-size: 110%; background-color: palevioletred; width: 100%; padding: 0.3%;">Explora las últimas publicaciones de tendencias a nivel mundial:</h1>
-<br>
-<a href="{% url 'crearBlog' %}" style="font-size: 100%; color: wheat; ">Agrega una nueva entrada</a>
-<br>
-{% if mensaje %}
-    <h2>{{mensaje}} </h2>
-{% endif %}
-<br>
-<form action = "{% url 'BuscarBlog' %}" method="GET">
-    <input type="string" name="contenido" id="contenido">
-    <input type="submit" value="Buscar">
-</form>
-<br>
+
 <br>
 <section>
     <div style="margin:auto; width: 75%; text-align:right; color: blanchedalmond">
