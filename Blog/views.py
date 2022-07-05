@@ -1,6 +1,3 @@
-from asyncio.windows_events import NULL
-from django import http
-from django.http import HttpResponse
 from django.shortcuts import render
 from Blog.forms import *
 from Blog.models import *
@@ -27,25 +24,27 @@ def buscar(request):
         return render(request, "Blog/buscarContenido.html", {"publicaciones":publicaciones})
     else:
         publicaciones=Publicacion.objects.all
-        mensaje = "Ingrese una búsqueda válida"
-    
-    return render(request, "Blog/blog.html", {"publicaciones": publicaciones, "mensaje":mensaje})
+        mensaje = "Ingrese una búsqueda válida"    
+        return render(request, "Blog/blog.html", {"publicaciones": publicaciones, "mensaje":mensaje})
 
 @login_required
 def publicaciones(request):
     if request.method == 'POST':
-        formulario = PublicacionForm(request.POST)
+        formulario = Publicacion_Form(request.POST)
         
-        if formulario.is_valid:
-            #informacion = formulario.cleaned_data
+        if formulario.is_valid():
+            informacion = formulario.cleaned_data
             titulo = request.POST['titulo']
             contenido = request.POST['contenido']
-            publicacion=Publicacion(titulo=titulo, contenido=contenido)
+            usuario= request.user
+            autor=User.objects.get(username=usuario.username)
+            publicacion=Publicacion(titulo=titulo, contenido=contenido, autor=autor)
             publicacion.save()
+            mensaje = "Publicacion creada. Gracias por tu contribución!"
 
-            return render(request, "Blog/crearBlog.html", {"formulario":formulario})
+            return render(request, "Base/inicio.html", {"mensaje":mensaje})
     else: 
-            formulario=PublicacionForm()
+            formulario=Publicacion_Form()
 
     return render(request, "Blog/crearBlog.html", {"formulario":formulario})
 

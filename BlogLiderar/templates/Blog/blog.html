@@ -26,8 +26,8 @@
 
         {% for publicacion in publicaciones %}
             {% for categoria in publicacion.categorias.all %}
-            <a href="{% url 'categoria' categoria.id %}" style="font-size: 100%; color: wheat; ">{{categoria.titulo}}</a> &nbsp;&nbsp;|
-              {% endfor %}
+                <a href="{% url 'categoria' categoria.id %}" style="font-size: 100%; color: wheat; ">{{categoria.titulo}}</a> &nbsp;&nbsp;|
+                {% endfor %}
         {% endfor %}
 
     </div>
@@ -41,7 +41,10 @@
 <div style="text-align:left;"><a style="font-size: 150%; "><strong><i>{{publicacion.titulo}}</i></strong></a></div>  
     <br>
 
-<p><img style="width: 30%; image-orientation:left;" src={{publicacion.image.url}}> </p>
+{% if publicacion.image %}
+<p><img style="width: 30%; image-orientation:left;" src={{publicacion.image.url}}></p>
+{% endif %}
+
 <div style="text-align:left; width: 100%"><a style="font-size: 120%; "><a style="font-family: Segoe UI; "></a>{{publicacion.contenido}}</a></div>
 
 
@@ -50,7 +53,9 @@
     <br>
     Fecha: {{publicacion.creado}}
     <br>
-    Categoría: {{publicacion.categorias}}
+    {% for categoria in publicacion.categorias.all %}
+    Categoría: {{categoria.titulo}}
+    {% endfor %}
 </div>
 </a>
 
