@@ -15,3 +15,6 @@ Maria Camila Reyes estuvo ecargada de las aplicaciones de Blog y ContactApp.
 David Zamora Acosta estuvo encargado de las aplicaciones de Servicios y Usuarios.
 
 Sin embargo, durante la realizacion del proyecto se vio intervencion de los dos usuarios en las demás aplicaciones con el fin de asegurar que los cambios realizados no intervinieran en el funcionamiento de las demás aplicaciones. 
+
+
+LINK VIDEO https://youtu.be/7NPAlesd8p8
